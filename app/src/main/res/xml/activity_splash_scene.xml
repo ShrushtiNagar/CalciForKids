@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:autoTransition="animateToEnd"
+        motion:duration="4000">
+       <KeyFrameSet>
+           <KeyAttribute
+               motion:motionTarget="@+id/imageView5"
+               motion:framePosition="0"
+               android:scaleX="1" />
+           <KeyAttribute
+               motion:motionTarget="@+id/imageView5"
+               motion:framePosition="0"
+               android:scaleY="1" />
+           <KeyPosition
+               motion:motionTarget="@+id/imageView5"
+               motion:framePosition="40"
+               motion:keyPositionType="deltaRelative" />
+           <KeyAttribute
+               motion:motionTarget="@+id/imageView5"
+               motion:framePosition="40"
+               android:scaleX="2" />
+           <KeyAttribute
+               motion:motionTarget="@+id/imageView5"
+               motion:framePosition="40"
+               android:scaleY="2" />
+           <KeyPosition
+               motion:motionTarget="@+id/imageView5"
+               motion:framePosition="100"
+               motion:keyPositionType="deltaRelative" />
+           <KeyAttribute
+               motion:motionTarget="@+id/imageView5"
+               motion:framePosition="100"
+               android:scaleX="2" />
+           <KeyAttribute
+               motion:motionTarget="@+id/imageView5"
+               motion:framePosition="100"
+               android:scaleY="2" />
+           <KeyPosition
+               motion:motionTarget="@+id/imageView5"
+               motion:framePosition="60"
+               motion:keyPositionType="deltaRelative" />
+           <KeyAttribute
+               motion:motionTarget="@+id/imageView5"
+               motion:framePosition="60"
+               android:scaleX="2.6" />
+           <KeyAttribute
+               motion:motionTarget="@+id/imageView5"
+               motion:framePosition="60"
+               android:scaleY="2.6" />
+           <KeyPosition
+               motion:motionTarget="@+id/imageView5"
+               motion:framePosition="55"
+               motion:keyPositionType="deltaRelative" />
+           <KeyAttribute
+               motion:motionTarget="@+id/imageView5"
+               motion:framePosition="55"
+               android:rotationY="0" />
+           <KeyAttribute
+               motion:motionTarget="@+id/imageView5"
+               motion:framePosition="61"
+               android:rotationY="6" />
+           <KeyAttribute
+               motion:motionTarget="@+id/imageView5"
+               motion:framePosition="65"
+               android:rotationY="0" />
+
+       </KeyFrameSet>
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@+id/imageView5"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintVertical_bias="0.5"
+            motion:layout_constraintHorizontal_bias="0.5"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:scaleX="1"
+            android:scaleY="1" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+    </ConstraintSet>
+</MotionScene>

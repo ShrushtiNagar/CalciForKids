@@ -6,9 +6,7 @@
     </style>
 
     <style name="Theme.CalculatorApp" parent="Base.Theme.CalculatorApp" />
-    <style name="BtnColor" parent="Base.Theme.CalculatorApp">
-        <item name="colorPrimary">@color/light_grey</item>
-    </style>
+
     <style name="BtnColor2" parent="Base.Theme.CalculatorApp">
         <item name="colorPrimary">@color/orange</item>
     </style>
