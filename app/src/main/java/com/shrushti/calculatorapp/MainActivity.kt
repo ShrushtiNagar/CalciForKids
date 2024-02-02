@@ -8,6 +8,7 @@ import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.MobileAds
 import com.shrushti.calculatorapp.databinding.ActivityMainBinding
+import java.math.BigDecimal
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -33,7 +34,6 @@ class MainActivity : AppCompatActivity() {
 
             override fun onAdFailedToLoad(adError: LoadAdError) {
                 // Code to be executed when an ad request fails.
-                super.onAdFailedToLoad(adError)
                 binding.adView.loadAd(adRequest)
             }
         }
@@ -41,7 +41,6 @@ class MainActivity : AppCompatActivity() {
 
             override fun onAdFailedToLoad(adError: LoadAdError) {
                 // Code to be executed when an ad request fails.
-                super.onAdFailedToLoad(adError)
                 binding.adView2.loadAd(adRequest2)
             }
         }
@@ -49,7 +48,6 @@ class MainActivity : AppCompatActivity() {
 
             override fun onAdFailedToLoad(adError: LoadAdError) {
                 // Code to be executed when an ad request fails.
-                super.onAdFailedToLoad(adError)
                 binding.adView3.loadAd(adRequest3)
             }
         }
@@ -198,12 +196,12 @@ class MainActivity : AppCompatActivity() {
             if (i.isDigit() || i == '.') {
                 currDigit += i
             } else {
-                list.add(currDigit.toFloat())
+                list.add(currDigit.toBigDecimal())
                 list.add(i)
                 currDigit = ""
             }
         }
-        if (currDigit != "") list.add(currDigit.toFloat())
+        if (currDigit != "") list.add(currDigit.toBigDecimal())
         return list
     }
 
@@ -215,11 +213,11 @@ class MainActivity : AppCompatActivity() {
         for (i in list.indices) {
 
             if (list[i] is Char && i < restartIndex) {
-                val prev = list[i - 1] as Float
-                val next = list[i + 1] as Float
+                val prev = list[i - 1] as BigDecimal
+                val next = list[i + 1] as BigDecimal
 
                 if (list[i] == '%') {
-                    val res = prev % next
+                    val res  = prev % next
                     newList.add(res)
                     restartIndex = i + 1
                 } else {
@@ -238,9 +236,9 @@ class MainActivity : AppCompatActivity() {
         var restartIndex = list.size
         for (i in list.indices) {
             if (list[i] is Char && i < restartIndex) {
-                val prev = list[i - 1] as Float
+                val prev = list[i - 1] as BigDecimal
                 val op = list[i]
-                val next = list[i + 1] as Float
+                val next = list[i + 1] as BigDecimal
 
                 if (op == '*') {
                     val result = prev * next
@@ -261,13 +259,13 @@ class MainActivity : AppCompatActivity() {
         return newList
     }
 
-    private fun addSub(list: MutableList<Any>): Float {
-        var result = list[0] as Float
+    private fun addSub(list: MutableList<Any>): BigDecimal {
+        var result = list[0] as BigDecimal
 
         for (i in list.indices) {
             if (list[i] is Char) {
                 val op = list[i]
-                val next = list[i + 1] as Float
+                val next = list[i + 1] as BigDecimal
                 when (op) {
                     '+' -> result += next
                     '-' -> result -= next
